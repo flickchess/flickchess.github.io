@@ -1,13 +1,106 @@
 body {
+    width: 960px;
     margin: 0px;
+    padding: 5% 20%;
+    background: url(../images/coverbackground.png) no-repeat;
+    background-size: cover;
+    background-color: #131b3e;
 }
 
-.logo {    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
+.column {
+    width: 46%;
+    margin: 2%;
+    /*padding: 4%;*/
+    float: left;
+}
+
+.logo {           
+    width: 100%; 
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,1));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+#videoDemo {
+    margin-bottom: 20px;
+}
+
+#subscribeForm {
+
+}
+
+#subscribeForm label {
+    color: #7ecba4;
+    font-family: sans-serif;
+    padding: 2% 5%;    
+    float: left;
+}
+
+#subscribeForm input {
+    width: 34%;
+    margin-top: 1px;
+    padding: 2%;
+    border: 2px solid #343f81;
+    /*background-color: #eacf9e;*/
+    background-color: #7ecba4;
+    color: #343f81;
+    border-radius: 3px;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #343f81;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #343f81;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #343f81;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #343f81;
+}
+
+#subscribeForm button {
+    float: right;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: #c90059;
+    background-color: #343f81;
+    border: 2px solid #343f81;
+    border-radius: 3px;
+    padding: 2% 5%;
+}
+
+#subscribeForm button:hover {
+    color: #343f81;
+    background-color: #c90059;
+    border: 2px solid #343f81;
+}
+
+footer {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5%;
+    padding: 1% 5% 2%;
+    text-align: center;
+}
+
+footer #samaLogo {
+    display: inline-block;
+    background-image: url("../images/logoSama_wide_white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 40px;
+}
+
+footer #samaLogo span {
+    display: none;
 }
