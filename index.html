@@ -2,11 +2,27 @@
 <html>
     <head>
         <title>Flick Chess</title>
-        <link rel="stylesheet" type="text/css" href="./css/main.css">
         <link rel="shortcut icon" href="./favicon.ico"/>
+        
+        <!-- FOUNDATION -->
+    	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <!-- FLICKCHESS CSS -->
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
         
         <!-- JQUERY -->
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        
+        <script src="js/vendor/modernizr.js"></script>
+        
+		<!-- FOUNDATION -->		
+		<script src="js/foundation/foundation.js"></script>
+		<script src="js/foundation/foundation.accordion.js"></script>
+		<script src="js/foundation/foundation.alert.js"></script>
+		<script src="js/foundation/foundation.tab.js"></script>
+		<script src="js/foundation/foundation.topbar.js"></script>
+        
+        <script src="js/flickchess.js"></script>
         
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,17 +34,23 @@
         ga('send', 'pageview');
         </script>
     </head>
-    <body>        
-        <div class="column left">
-          <img class="logo shadowed" src="../images/flickchesslogo.png"/>  
-        </div>
-        <div class="column right">
-           <iframe id="videoDemo" width="100%" height="320" src="https://www.youtube.com/embed/F1JMBIgmIRo" frameborder="0" allowfullscreen></iframe>    
-            <form id="subscribeForm" action="POST">
-                <label>Subscribe to Alpha</label>
-                <input type="text" name="email" placeholder="Email"/>
-                <button type="submit">Send</button>
-            </form>            
+    <body>      
+        <div class="page-wrapper">
+            
+            <div id="main" class="row section">
+			<div class="small-12 medium-6 columns left">
+				<img class="logo shadowed" src="../images/flickchesslogo.png"/> 
+    		</div>
+            <div class="small-12 medium-6 columns right">
+				<iframe id="videoDemo" width="100%" height="320" src="https://www.youtube.com/embed/F1JMBIgmIRo" frameborder="0" allowfullscreen></iframe>    
+                <form id="subscribeForm" action="POST">
+                    <label>Subscribe to Alpha</label>
+                    <input type="text" name="email" placeholder="Email"/>
+                    <button type="submit">Send</button>
+                </form> 
+    		</div>    
+    	</div>
+            
         </div>
         <footer>
             <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
@@ -38,6 +60,8 @@
 
 <script>
     $(document).ready(function(){
-        
+        $("#subscribeForm").submit(function(){
+            
+        });
     });
 </script>
