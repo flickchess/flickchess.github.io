@@ -44,14 +44,15 @@ body {
 
 #subscribeForm label {
     color: #7ecba4;
-    padding: 2% 5%;    
+    padding: 1.5% 5%;    
     float: left;
+    cursor: default;
 }
 
 #subscribeForm input {
     float: left;
     width: 42%;
-    margin-top: 1px;
+    height: 34px;
     padding: 2%;
     border: 2px solid #343f81;
     /*background-color: #eacf9e;*/
@@ -80,12 +81,13 @@ body {
     float: right;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.9em;
+    font-weight: 700;
     text-transform: uppercase;
     color: #c90059;
     background-color: #343f81;
     border: 2px solid #343f81;
     border-radius: 3px;
-    padding: 1.5% 5%;
+    padding: 1% 5%;
 }
 
 #subscribeForm button:hover {
