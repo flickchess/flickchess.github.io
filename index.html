@@ -59,8 +59,7 @@
                     <label>Subscribe to Alpha</label>
                     <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
                     <button type="submit">Send</button>
-                    <p id="thanksMessage">Thanks for stopping by!</p>
-                    <p id="errorMessage"/>
+                    <p id="feedbackMessage">Thanks for stopping by!</p>
                 </form> 
     		</div>    
     	</div>
@@ -73,9 +72,7 @@
 </html>
 
 <script>
-    $(document).ready(function(){
-
-        $("#errorMessage").hide();
+    $(document).ready(function() {
 
         $("#subscribeForm").submit(function(e){
             e.preventDefault();
@@ -87,14 +84,10 @@
                     //console.debug(data);
                     //data_json = JSON.parse(data);
                     //if(data_json.status == 'success'){
-                    if (data == 'success') {
-                        $("#thanksMessage").show();
-                        $("#errorMessage").hide();
-                    } else {
-                       $("#thanksMessage").hide();
-                       $("#errorMessage").val(data);
-                       $("#errorMessage").show();
+                    if (data != 'success') {
+                        $("#feedbackMessage").val(data);
                     }
+                    $("#feedbackMessage").show();
                 });
             }
         });

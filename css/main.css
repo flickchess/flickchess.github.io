@@ -133,7 +133,7 @@ header {
     border: 2px solid #343f81;
 }
 
-#thanksMessage {
+#feedbackMessage {
     display: none;
     float: right;
     color: #eacf9e;
