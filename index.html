@@ -55,10 +55,11 @@
     		</div>
             <div class="small-12 large-6 columns right">
 				<iframe id="videoDemo" width="100%" height="320" src="https://www.youtube.com/embed/F1JMBIgmIRo" frameborder="0" allowfullscreen></iframe>    
-                <form id="subscribeForm" action="POST">
+                <form id="subscribeForm" method="POST" action="#">
                     <label>Subscribe to Alpha</label>
-                    <input type="text" name="email" placeholder="Email"/>
+                    <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
                     <button type="submit">Send</button>
+                    <p id="thanksMessage">Thanks for stopping by!</p>
                 </form> 
     		</div>    
     	</div>
@@ -72,8 +73,30 @@
 
 <script>
     $(document).ready(function(){
-        $("#subscribeForm").submit(function(){
+        $("#subscribeForm").submit(function(e){
+            e.preventDefault();
+		
+            var $email = $("#subscribeEmail");
             
+            if(validateEmail($email.val())){
+                $.post("http://178.62.217.77/subscribe",$(this).serialize(),function(data){
+                    data_json = JSON.parse(data);
+                    if(data_json.status == 'success'){
+                        $("#thanksMessage").show();
+                    }
+                    
+                    //Error en los datos
+                    if(data_json.status == 'error'){
+                       $("#thanksMessage").hide();
+                    }
+                });
+            }
         });
     });
+    
+    /* VALIDATE */
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
 </script>
