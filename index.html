@@ -60,6 +60,7 @@
                     <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
                     <button type="submit">Send</button>
                     <p id="thanksMessage">Thanks for stopping by!</p>
+                    <p id="errorMessage"/>
                 </form> 
     		</div>    
     	</div>
@@ -73,6 +74,9 @@
 
 <script>
     $(document).ready(function(){
+
+        $("#errorMessage").hide();
+
         $("#subscribeForm").submit(function(e){
             e.preventDefault();
 		
@@ -83,11 +87,11 @@
                     data_json = JSON.parse(data);
                     if(data_json.status == 'success'){
                         $("#thanksMessage").show();
-                    }
-                    
-                    //Error en los datos
-                    if(data_json.status == 'error'){
+                        $("#errorMessage").hide();
+                    } else {
                        $("#thanksMessage").hide();
+                       $("#errorMessage").val(data_json.status);
+                       $("#errorMessage").show();
                     }
                 });
             }
