@@ -59,7 +59,7 @@
                     <label>Subscribe to Alpha</label>
                     <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
                     <button type="submit">Send</button>
-                    <p id="feedbackMessage">Thanks for stopping by!</p>
+                    <p id="feedbackMessage"/>
                 </form> 
     		</div>    
     	</div>
@@ -81,10 +81,12 @@
             
             if(validateEmail($email.val())){
                 $.post("http://538c55a8.ngrok.com/subscribe/flickchess",$(this).serialize(),function(data){
-                    //console.debug(data);
+                    console.debug(data);
                     //data_json = JSON.parse(data);
-                    //if(data_json.status == 'success'){
-                    if (data != 'success') {
+                    //if(data_json.status == 'success'){                        
+                    if (data == 'success') {
+                        $("#feedbackMessage").val('Thanks for stopping by!');
+                    } else {
                         $("#feedbackMessage").val(data);
                     }
                     $("#feedbackMessage").show();
