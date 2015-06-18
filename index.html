@@ -80,7 +80,7 @@
             var $email = $("#subscribeEmail");
             
             if(validateEmail($email.val())){
-                $.post("http://538c55a8.ngrok.com/subscribe/flickchess",$(this).serialize(),function(data){
+                $.post("http://178.62.217.77:8080/subscribe/flickchess",$(this).serialize(),function(data){
                     console.debug(data);
                     //data_json = JSON.parse(data);
                     //if(data_json.status == 'success'){                        
