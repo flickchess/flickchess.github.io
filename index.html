@@ -77,15 +77,13 @@
         $("#subscribeForm").submit(function(e){
             e.preventDefault();
             
+            $("#feedbackMessage").hide();
             $("#buttonSend").hide();
 		
             var $email = $("#subscribeEmail");
             
-            if(validateEmail($email.val())){
+            if(validateEmail($email.val())) {
                 $.post("http://178.62.217.77:8080/subscribe/flickchess",$(this).serialize(),function(data){
-                    console.debug(data);
-                    //data_json = JSON.parse(data);
-                    //if(data_json.status == 'success'){                        
                     if (data == 'success') {
                         $("#feedbackMessage").html('Thanks for stopping by!');
                         $("#subscribeEmail").val("");
@@ -95,6 +93,10 @@
                     $("#feedbackMessage").show();
                     $("#buttonSend").show();
                 });
+            } else {
+                $("#feedbackMessage").html('Invalid email');
+                $("#feedbackMessage").show();
+                $("#buttonSend").show();
             }
         });
     });
