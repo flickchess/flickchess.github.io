@@ -66,7 +66,7 @@ header {
 
 .shadowed {
     -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,1));
-    filter: url(#drop-shadow);
+    filter: drop-shadow(12px 12px 25px rgba(0,0,0,1));
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
