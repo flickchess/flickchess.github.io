@@ -31,6 +31,7 @@ header {
 .socialIcon {    
     margin-left: 15px;
     color: #FFF !important;
+    float: left;
 }
 
 .socialIcon:hover {   
@@ -51,6 +52,11 @@ header {
 
 .socialIcon span {
     display: none;
+}
+
+.separator {
+    display: inline-block;
+    height: 40px;
 }
 
 .page-wrapper {
@@ -115,7 +121,7 @@ header {
 }
 
 #subscribeForm button {
-    float: right;
+    float: left;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.9em;
     font-weight: 700;
@@ -125,6 +131,7 @@ header {
     border: 2px solid #343f81;
     border-radius: 3px;
     padding: 1% 5%;
+    margin-left: 1%;
 }
 
 #subscribeForm button:hover {
