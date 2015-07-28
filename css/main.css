@@ -6,9 +6,9 @@ html {
 }
 
 body {
-    background: url(../images/coverbackground.png) no-repeat;
+    background: url(../images/stardust.png) no-repeat;
     background-size: cover;
-    background-color: #131b3e;
+    background-color: #121B3E;
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     display: inline-block;
@@ -31,11 +31,11 @@ header {
 .socialIcon {    
     margin-left: 15px;
     color: #FFF !important;
-    float: left;
+    float: right;
 }
 
 .socialIcon:hover {   
-    color: #c90059 !important;
+    color: #FF2788 !important;
 }
 
 .socialIcon.facebook {
@@ -68,6 +68,7 @@ header {
 
 .logo {           
     width: 95%; 
+    margin-top: 5%;
 }
 
 .shadowed {
@@ -82,12 +83,11 @@ header {
 }
 
 #subscribeForm {
-
 }
 
 #subscribeForm label {
     color: #7ecba4;
-    padding: 1.5% 5%;    
+    padding: 1% 2% 1% 0;    
     float: left;
     cursor: default;
 }
@@ -95,10 +95,9 @@ header {
 #subscribeForm input {
     float: left;
     width: 42%;
-    height: 34px;
+    height: 30px;
     padding: 2%;
     border: 2px solid #343f81;
-    /*background-color: #eacf9e;*/
     background-color: #7ecba4;    
     border-radius: 3px;
     color: #343f81;
@@ -106,18 +105,18 @@ header {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #343f81;
+    color:    #121B3E;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #343f81;
+   color:    #121B3E;
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #343f81;
+   color:    #121B3E;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-   color:    #343f81;
+   color:    #121B3E;
 }
 
 #subscribeForm button {
@@ -126,24 +125,21 @@ header {
     font-size: 0.9em;
     font-weight: 700;
     text-transform: uppercase;
-    color: #c90059;
-    background-color: #343f81;
-    border: 2px solid #343f81;
+    color: #FF2788;
+    background-color: #6800B2;
     border-radius: 3px;
     padding: 1% 5%;
     margin-left: 1%;
 }
 
 #subscribeForm button:hover {
-    color: #343f81;
-    background-color: #c90059;
-    border: 2px solid #343f81;
+    background-color: #AC3AFF;
 }
 
 #feedbackMessage {
     display: none;
     float: right;
-    color: #eacf9e;
+    color: #3F9DFF;
     font-size: 0.9em;
 }
 
@@ -171,15 +167,17 @@ footer #samaLogo span {
 
 // Small screens
 @media only screen { 
-
-    
     
 } /* Define mobile styles */
 
 @media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
-@media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
+@media only screen and (min-width: 40.063em) {
+    #subscribeForm input {
+        width: 45%;
+    }
+} /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
