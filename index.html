@@ -57,7 +57,7 @@
             
             <div id="main" class="row section">
 			<div class="small-8 small-offset-2 medium-6 medium-offset-0 columns">
-				<img class="logo shadowed" src="../images/flickChess.png"/> 
+				<img name="logo" class="logo shadowed" src="../images/flickChess.png"/> 
                 <div class="show-for-small-only separator"></div>
     		</div>
             <div class="small-12 medium-6 columns">
@@ -80,6 +80,11 @@
 
 <script>
     $(document).ready(function() {
+
+        var language = getQueryVariable("lang");
+        if (language == "ee") {
+            window.document.logo.src = '../images/flickChess_ee.png';
+        }
 
         $("#subscribeForm").submit(function(e){
             e.preventDefault();
@@ -108,9 +113,20 @@
         });
     });
     
-    /* VALIDATE */
     function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
+    }    
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+        alert('Query Variable ' + variable + ' not found');
     }
 </script>
