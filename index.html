@@ -46,31 +46,35 @@
     <body>      
         <header>
             <div class="row">
-                <div class="small-6 small-offset-6 medium-3 medium-offset-9 large-2 large-offset-10 columns socialLinksHolder">
+                <div class="small-7 small-offset-5 medium-3 medium-offset-9 columns socialLinksHolder">
                     <a class="hide-for-large-up socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
                     <a class="hide-for-large-up socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>
                     <a class="hide-for-large-up socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
                     
-                    <a class="show-for-large-only socialIcon youtube fa fa-youtube fa-lg" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
-                    <a class="show-for-large-only socialIcon twitter fa fa-twitter fa-lg" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>
-                    <a class="show-for-large-only socialIcon facebook fa fa-facebook-square fa-lg" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
+                    <a class="show-for-large-only socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
+                    <a class="show-for-large-only socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>
+                    <a class="show-for-large-only socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
                     
                 </div>
             </div>
         </header>
         <div class="page-wrapper">
-            
             <div id="main" class="row section">
 			<div class="small-8 small-offset-2 medium-6 medium-offset-0 columns">
 				<img name="logo" class="logo shadowed" src="../images/flickChess_forget.png"/> 
                 <div class="show-for-small-only separator"></div>
     		</div>
             <div class="small-12 medium-6 columns">
-				<iframe id="videoDemo" width="100%" height="320" src="https://www.youtube.com/embed/6-Jdct_piiE" frameborder="0" allowfullscreen></iframe>    
+                <div id="trailerHolder">                    
+                    <div id="trailerPlay" class="shadowed">
+                        <i class="fa fa-play-circle fa-4x shadowed"></i>
+                    </div>
+                    <div id="videoDemo"></div>                    
+                </div>				
                 <form id="subscribeForm" method="POST" action="#">
-                    <label>Subscribe to Alpha</label>
+                    <label>Wanna help us make this awesome?? Join our alpha testing team, be part of our credits and receive the full version for free!</label>
                     <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
-                    <button id="buttonSend" type="submit">Send</button>
+                    <button id="buttonSend" type="submit">Subscribe</button>
                     <p id="feedbackMessage">Thanks for stopping by!</p>
                 </form> 
     		</div>    
@@ -90,7 +94,16 @@
         if (language == "ee") {
             window.document.logo.src = '../images/flickChess_ee.png';
         }
-
+        
+        /*TRAILER PLAY*/
+        $('#trailerPlay').on('click',function(){            
+            videoInit('#videoDemo', 'https://www.youtube.com/embed/6-Jdct_piiE?autoplay=1');
+            
+            $(this).hide();
+            $('#videoDemo').show();
+        });
+        
+        /*SUBSCRIPTION FORM*/
         $("#subscribeForm").submit(function(e){
             e.preventDefault();
             
@@ -133,5 +146,20 @@
             }
         }
         //alert('Query Variable ' + variable + ' not found');
+    }
+    
+    function videoInit(wrapper, url) {        
+        var iframe = $('<iframe>',{
+            src: url,
+            width: '100%',
+            height: '100%',
+            frameborder:'0',
+            allowTransparency: true,
+            allowFullScreen: '', 
+            webkitallowfullscreen: '', 
+            mozallowfullscreen: ''
+        });
+
+        $(wrapper).append(iframe); 
     }
 </script>
