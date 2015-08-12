@@ -62,7 +62,7 @@ header {
 .page-wrapper {
     width: 100%;
     max-width: 960px;
-    min-height: 650px;
+    max-height: 650px;
     margin: 0 auto;  
     padding-top: 5%;
 }
@@ -115,8 +115,7 @@ header {
 }
 
 #subscribeForm {
-    display: inline-block;
-    margin-bottom: 50px;    
+    display: inline-block;    
 }
 
 #subscribeForm label {
@@ -187,8 +186,6 @@ footer {
     margin-top: 5%;
     padding: 1% 5%;
     text-align: center;
-    position: fixed;
-    bottom: 0
 }
 
 footer #samaLogo {
@@ -196,7 +193,7 @@ footer #samaLogo {
     background-image: url("../images/logoSama_wide_white.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    width: 350px;
+    width: 250px;
     height: 55px;
 }
 
@@ -211,16 +208,17 @@ footer #samaLogo span {
 } /* Define mobile styles */
 
 @media only screen and (max-width: 40em) {
+    .page-wrapper {
+        padding-top: 10%;    
+    }
+    
     #trailerHolder {
         height: 250px;
     }
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
-@media only screen and (min-width: 40.063em) {
-    #subscribeForm input {
-        width: 45%;
-    }
+@media only screen and (min-width: 40.063em) {    
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
