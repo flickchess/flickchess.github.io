@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background: url(../images/stardust.png) no-repeat;
+    background: url(../images/stardust.png) repeat;
     background-size: cover;
     background-color: #121B3E;
     font-size: 16px;
