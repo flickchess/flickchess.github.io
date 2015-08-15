@@ -24,39 +24,6 @@ header {
     margin: 0 0 20px;
 }
 
-.socialLinksHolder {
-    float: right;
-    display: inline-block;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 18px;
-}
-
-.socialIcon {        
-    color: #FFF !important;
-    float: right;
-}
-
-.socialIcon:hover {   
-    color: #FF2788 !important;
-}
-
-.socialIcon.facebook {
-    
-}
-
-.socialIcon.twitter {
-    margin-left: 15px;
-}
-
-.socialIcon.youtube {
-    margin-left: 15px;
-}   
-
-.socialIcon span {
-    display: none;
-}
-
 .separator {
     display: inline-block;
     height: 40px;
@@ -68,7 +35,7 @@ header {
     max-width: 960px;
     max-height: 650px;
     margin: 0 auto;  
-    padding-top: 1%;
+    padding-top: 3%;
 }
 
 .logo {           
@@ -84,6 +51,7 @@ header {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
+/*VIDEO*/
 #trailerHolder {
     width: 100%;
     height: 240px;
@@ -120,6 +88,7 @@ header {
     height: 100%;
 }
 
+/*FORM*/
 #subscribeForm {
     display: inline-block;    
 }
@@ -187,6 +156,40 @@ header {
     font-size: 0.9em;
 }
 
+/*SOCIAL*/
+.socialLinksHolder {    
+    display: inline-block;
+    padding-top: 0;
+    font-size: 18px;    
+    
+}
+
+.socialIcon {        
+    color: #FFF !important;
+    float: right;
+}
+
+.socialIcon:hover {   
+    color: #FF2788 !important;
+}
+
+.socialIcon.facebook {
+    
+}
+
+.socialIcon.twitter {
+    margin-left: 15px;
+}
+
+.socialIcon.youtube {
+    margin-left: 15px;
+}   
+
+.socialIcon span {
+    display: none;
+}
+
+/*FOOTER*/
 footer {
     display: inline-block;
     width: 100%;
