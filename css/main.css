@@ -86,7 +86,7 @@ header {
 
 #trailerHolder {
     width: 100%;
-    height: 320px;
+    height: 240px;
     /*margin-bottom: 20px;*/
 }
 
@@ -222,11 +222,7 @@ footer #samaLogo span {
     .logo {           
         width: 85%; 
         margin-left: 7.5%;
-    }
-    
-    #trailerHolder {
-        height: 250px;
-    }
+    }    
     
     #trailerPlay {
         background-size: 60%;
