@@ -106,7 +106,7 @@ header {
     color: #FFF;
     position: absolute;
     top: 40%;
-    left: 45%;
+    left: 44%;
 }
 
 #trailerPlay:hover i {
@@ -231,10 +231,17 @@ footer #samaLogo span {
     #trailerPlay {
         background-size: 60%;
     }
+    
+    #trailerPlay i {
+        left: 43%;
+    }
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
 @media only screen and (min-width: 40.063em) {    
+     #trailerPlay i {
+        left: 43%;
+    }
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
