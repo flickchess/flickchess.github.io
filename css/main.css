@@ -82,6 +82,7 @@ header {
     position: absolute;
     top: 40%;
     left: 44%;
+    opacity: 0.8;
 }
 
 .trailerPlay:hover i {
