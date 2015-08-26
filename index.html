@@ -68,12 +68,12 @@
                         <div class="videoDemo"></div>                    
                     </div>            
 
-                    <form id="subscribeForm" method="POST" action="#">
+                    <div id="subscribeForm">
                         <label>Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version!</label>
-                        <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
-                        <button id="buttonSend" type="submit">I am in!</button>
-                        <p id="feedbackMessage">Thanks for stopping by!</p>
-                    </form>                 
+                        <input type="text" class="subscribeEmail" name="email" placeholder="Email"/>
+                        <button class="buttonSend">I am in!</button>
+                        <p class="feedbackMessage">Thanks for stopping by!</p>
+                    </div>                 
                 </div>  
             </div>
             <!--FOR MOBILE-->
@@ -89,12 +89,12 @@
             </div>
             <div class="row hide-for-large-up">
                 <div class="small-12 medium-6 medium-offset-3 columns">
-                    <form id="subscribeForm" method="POST" action="#">
+                    <div id="subscribeForm">
                         <label>Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version!</label>
-                        <input type="text" id="subscribeEmail" name="email" placeholder="Email"/>
-                        <button id="buttonSend" type="submit">I am in!</button>
-                        <p id="feedbackMessage">Thanks for stopping by!</p>
-                    </form>                 
+                        <input type="text" class="subscribeEmail" name="email" placeholder="Email"/>
+                        <button class="buttonSend">I am in!</button>
+                        <p class="feedbackMessage">Thanks for stopping by!</p>
+                    </div>
                 </div>
             </div>        
     	</div>        
@@ -130,30 +130,59 @@
             $(this).hide();
         });
         
-        /*SUBSCRIPTION FORM*/
-        $("#subscribeForm").submit(function(e){
+        $('.buttonSend').on('click', function(e) {            
+            
             e.preventDefault();
             
-            $("#feedbackMessage").hide();
-            $("#buttonSend").hide();
+            $(".feedbackMessage").each(function(index) {
+                $(this).hide();
+            });            
+            $("buttonSend").each(function(index) {            
+                $(this).hide();
+            });
 		
-            var $email = $("#subscribeEmail");
+            var email = '';
+            $(".subscribeEmail").each(function(index) {
+                if ($(this).val() != '') {
+                    email = $(this).val();
+                }
+            });            
             
-            if(validateEmail($email.val())) {
-                $.post("http://178.62.217.77:8080/subscribe/flickchess",$(this).serialize(),function(data){
-                    if (data == 'success') {
-                        $("#feedbackMessage").html('Thanks for stopping by!');
-                        $("#subscribeEmail").val("");
-                    } else {
-                        $("#feedbackMessage").html(data);
+            if (validateEmail(email)) {
+                var requestURL = 'http://178.62.217.77:8080/subscribe/flickchess';                
+                $.ajax({                    
+                    url: requestURL,                    
+                    contentType: 'application/x-www-form-urlencoded',
+                    type: 'POST',
+                    data: {'email': email},
+                    success: function(data) {
+                        console.debug(data);
+                        if (data == 'success') {
+                            console.debug('ok');
+                            $(".feedbackMessage").each(function(index) {
+                                $(this).html('Thanks for stopping by!');
+                                $(this).show();
+                            });
+                            $(".subscribeEmail").each(function(index) {
+                                $(this).val("");
+                            });
+                        } else {
+                            $(".feedbackMessage").each(function(index) {                                
+                                $(this).html(data);
+                                $(this).show();
+                            });
+                        }                        
+                    },
+                    failure: function(errMsg) {
+                        $(".feedbackMessage").html(errMsg);
+                        $(".feedbackMessage").show();
+                        $(".buttonSend").show();
                     }
-                    $("#feedbackMessage").show();
-                    $("#buttonSend").show();
-                });
+                });                
             } else {
-                $("#feedbackMessage").html('Invalid email');
-                $("#feedbackMessage").show();
-                $("#buttonSend").show();
+                $(".feedbackMessage").html('Invalid email');
+                $(".feedbackMessage").show();
+                $(".buttonSend").show();
             }
         });
     });

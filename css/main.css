@@ -160,7 +160,7 @@ header {
     border: 2px solid #AC3AFF;    
 }
 
-#feedbackMessage {
+.feedbackMessage {
     display: none;
     float: right;
     color: #3F9DFF;
