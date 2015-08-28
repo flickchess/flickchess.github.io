@@ -137,7 +137,7 @@
             $(".feedbackMessage").each(function(index) {
                 $(this).hide();
             });            
-            $("buttonSend").each(function(index) {            
+            $(".buttonSend").each(function(index) {            
                 $(this).hide();
             });
 		
@@ -145,6 +145,7 @@
             $(".subscribeEmail").each(function(index) {
                 if ($(this).val() != '') {
                     email = $(this).val();
+                    email = email.toLocaleLowerCase();
                 }
             });            
             
@@ -166,9 +167,15 @@
                             $(".subscribeEmail").each(function(index) {
                                 $(this).val("");
                             });
+                            $(".buttonSend").each(function(index) {            
+                                $(this).show();
+                            });
                         } else {
                             $(".feedbackMessage").each(function(index) {                                
                                 $(this).html(data);
+                                $(this).show();
+                            });
+                            $(".buttonSend").each(function(index) {            
                                 $(this).show();
                             });
                         }                        
@@ -176,7 +183,9 @@
                     failure: function(errMsg) {
                         $(".feedbackMessage").html(errMsg);
                         $(".feedbackMessage").show();
-                        $(".buttonSend").show();
+                        $(".buttonSend").each(function(index) {            
+                            $(this).show();
+                        });
                     }
                 });                
             } else {
