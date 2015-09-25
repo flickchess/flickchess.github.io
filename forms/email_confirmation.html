@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email confirmation</title>
+        <link rel="shortcut icon" href="./favicon.ico"/>
+        
+        <!-- FOUNDATION -->
+    	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <!-- FLICKCHESS CSS -->
+<!--		<link rel="stylesheet" type="text/css" href="/css/main.css"/>-->
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <!-- JQUERY -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+        <script src="/js/vendor/modernizr.js"></script>
+        
+		<!-- FOUNDATION -->		
+		<script src="/js/foundation/foundation.js"></script>
+		<script src="/js/foundation/foundation.accordion.js"></script>
+		<script src="/js/foundation/foundation.alert.js"></script>
+		<script src="/js/foundation/foundation.tab.js"></script>
+		<script src="/js/foundation/foundation.topbar.js"></script>
+        
+        <script src="/js/flickchess.js"></script>        
+        
+    </head>
+    <body>        
+        <div class="content page-wrapper">
+            <div id="main" class="row section">				
+<!--
+                <div class="small-12 medium-6 medium-offset-3 large-6 large-offset-0 columns">
+                    <img name="logo" class="logo shadowed" src="/images/flickChess_forget.png"/>                  
+                </div>           
+-->
+                
+                <p class="feedbackMessage">Thanks for subscribing!<br>Just a few more steps and you will be able to download the latest alpha release of the game.<br>Could you please tell us a bit about you?</p>
+                
+                <div id="emailConfirmationForm">                        
+                    <label for="email">Email (Hidden)</label>
+                    <input type="text" class="inputBox" name="email" />
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="inputBox" name="firstName" placeholder="José" value="Marcelo" />
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="inputBox" name="lastName" placeholder="Prieto"/>
+                    <label for="googlePlayId">Google Account (email)</label>
+                    <input type="text" class="inputBox" name="googlePlayId" placeholder="jose.prietogaray@gmail.com"/>
+                    <label for="appleId">Apple ID (email)</label>
+                    <input type="text" class="inputBox" name="appleId" placeholder="jose.prietogaray@gmail.com"/>
+<!--
+                    <label for="age">Age (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>
+                    <label for="age">Gender (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>
+                    <label for="age">Location (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>                        
+-->
+                </div> 
+                <button id="buttonConfirmEmail">Confirm</button>
+                <p id="feedbackMessage">Confirm feedback here</p>
+            </div>    
+    	</div>        
+            
+<!--
+        <footer class="page-wrapper">
+            <div class="row">
+                <div class="small-6 small-centered medium-5 large-3 columns">
+                    <div class="socialLinksHolder">
+                        <a class="socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
+                        <a class="socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>
+                        <a class="socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
+                    </div>                    
+                </div>
+            </div>            
+            <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>
+        </footer>
+-->
+    </body>
+</html>
+
+<script>
+    var email;
+    $(document).ready(function() {
+                      
+        $('#feedbackMessage').hide();
+
+        var language = getQueryVariable("lang");
+        if (language == "ee") {
+            window.document.logo.src = '../images/flickChess_ee.png';
+        }
+        
+        email = getQueryVariable("email");
+        console.debug("email=" + email);
+        
+        if (email) {
+            $("[name='email']").val(email);
+        }        
+        
+        $('#buttonConfirmEmail').on('click', function(e) {            
+            
+            e.preventDefault();
+            
+            $('#buttonConfirmEmail').hide();
+            $('#feedbackMessage').show();
+            $('#feedbackMessage').html('Please wait...');            
+            
+            if (validateEmail(email)) {                
+                var data = {};                
+                $("input[class=inputBox]").each(function() {
+                    var id = $(this).attr("name");
+                    var value = $(this).val();                    
+                    if (value) {
+                        data[id] = value;
+                    }
+                });                
+                
+                var requestURL = 'http://97ba2ad.ngrok.com/api/flickchess/validate';
+                $.ajax({
+                    url: requestURL,
+                    contentType: 'application/json',
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    success: function(data) {                        
+                        $("#feedbackMessage").html(data);
+                        updateConfirmationButton();
+                    },
+                    failure: function(errMsg) {                        
+                        $("#feedbackMessage").html(errMsg);
+                        updateConfirmationButton();
+                    }
+                });
+            } else {
+                $("#feedbackMessage").html('Invalid email');
+            }
+        });
+    });
+    
+    function updateConfirmationButton() {
+        $('#buttonConfirmEmail').html('Update');
+        $('#buttonConfirmEmail').show();        
+    }
+    
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }    
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+    }
+    
+</script>
