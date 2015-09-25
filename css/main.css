@@ -28,6 +28,10 @@ header {
     padding: 0 2.5%;
 }
 
+.section {
+    color: #FFF;
+}
+
 .separator {
     display: inline-block;
     height: 40px;
@@ -141,10 +145,8 @@ header {
    color:    #121B3E;
 }
 
-#subscribeForm button {
-    float: left;
+.formButton {
     font-family: 'Open Sans', sans-serif;
-    font-size: 0.9em;
     font-weight: 700;
     text-transform: uppercase;
     color: #FF2788;
@@ -152,18 +154,25 @@ header {
     border: 2px solid #6800B2;
     border-radius: 3px;
     padding: 0.5% 5%;
-    margin-left: 1%;
-    width: 30%;
 }
 
-#subscribeForm button:hover {
-    border: 2px solid #AC3AFF;    
+.formButton:hover {
+    border: 2px solid #AC3AFF;  
+    color: #FF2788;
+    background-color: #121B3E; 
+}
+
+#subscribeForm button {
+    float: left;
+    font-size: 0.9em;    
+    margin-left: 1%;
+    width: 30%;
 }
 
 .feedbackMessage {
     display: none;
     float: right;
-    color: #3F9DFF;
+    color: #AC3AFF;
     font-size: 0.9em;
 }
 
@@ -220,6 +229,43 @@ footer #samaLogo {
 footer #samaLogo span {
     display: none;
 }
+
+
+/*CONFIRMATION FORM*/
+#confirmFormHeader {
+    margin-top: 60px;
+}
+
+#emailConfirmationForm label {
+    color: #FF3394;
+    padding: 1% 2% 1% 0;    
+    float: left;
+    cursor: default;
+    width: 100%;
+}
+
+#emailConfirmationForm input {
+    float: left;
+    width: 100%;
+    height: 30px;
+    padding: 2%;
+    border: 2px solid #343f81;
+    background-color: #80CAA8;    
+    border-radius: 3px;
+    color: #343f81;
+    font-size: 12px;
+}
+
+#emailConfirmationForm p {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+#confirmFormWrapper #feedbackMessage {
+    color: #AC3AFF;
+}
+
+/*CONFIRMATION FORM*/
 
 
 // Small screens
