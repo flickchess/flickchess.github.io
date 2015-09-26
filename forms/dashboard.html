@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email confirmation</title>
+        <link rel="shortcut icon" href="./favicon.ico"/>
+        
+        <!-- FOUNDATION -->
+    	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <!-- FLICKCHESS CSS -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <!-- JQUERY -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+        <script src="/js/vendor/modernizr.js"></script>
+        
+		<!-- FOUNDATION -->		
+		<script src="/js/foundation/foundation.js"></script>
+		<script src="/js/foundation/foundation.accordion.js"></script>
+		<script src="/js/foundation/foundation.alert.js"></script>
+		<script src="/js/foundation/foundation.tab.js"></script>
+		<script src="/js/foundation/foundation.topbar.js"></script>
+        
+        <script src="/js/flickchess.js"></script>        
+        
+    </head>
+    <body>        
+        <div class="content page-wrapper">
+            <div id="main" class="row section">				
+                <div class="small-12 medium-4 medium-offset-4 columns">
+                    <img name="logo" class="logo shadowed" src="/images/flickChess_forget.png"/>                  
+                </div>           
+            </div>
+            <div id="confirmFormWrapper" class="row section">
+                <div class="small-12 medium-6 medium-offset-3 columns">
+                    <div id="emailConfirmationForm">                        
+                        <label for="email">Password</label>
+                        <input type="password" class="inputBox" id="password"/>
+                    </div>
+                    <button id="buttonConfirm" class="formButton">Confirm</button>
+                    <p id="feedbackMessage"/>
+                </div>
+            </div>    
+    	</div>
+    </body>
+</html>
+
+<script>
+    var action;
+    $(document).ready(function() {
+        
+        action = getQueryVariable('action');
+        
+        $('#buttonConfirm').on('click', function(e) {            
+            
+            e.preventDefault();            
+            
+            $('#feedbackMessage').show();
+            $('#feedbackMessage').html('Please wait...');
+            
+            var password = $('#password').val();            
+            
+            var data = {};
+            $("input[class=inputBox]").each(function() {
+                var id = $(this).attr("name");
+                var value = $(this).val();                    
+                if (value) {
+                    data[id] = value;
+                }
+            });            
+            
+            if (action == 'pending_validation') {
+                action = 'validate/pending';
+            } else if (action == 'pending_whitelist') {
+                action = 'whitelist/pending';
+            }
+
+            var requestURL = 'http://97ba2ad.ngrok.com/api/flickchess/' + action;
+            $.ajax({
+                url: requestURL,
+                type: 'GET',
+                headers: { 'X-SAMASAMA-PASSWORD': password },
+                success: function(data) {                        
+                    $("#feedbackMessage").html(data);
+                },
+                failure: function(errMsg) {                        
+                    $("#feedbackMessage").html(errMsg);
+                }
+            });            
+        });
+    });    
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+            if (pair[0] == variable) {
+                return pair[1];
+            }
+        }
+    }
+    
+</script>
