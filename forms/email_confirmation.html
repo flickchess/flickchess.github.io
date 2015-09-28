@@ -103,6 +103,7 @@
         var id = getQueryVariable('id');
         $('[name=id]').val(id);
         
+        // Fetch user email.
         var requestURL = 'http://27e22056.ngrok.com/api/flickchess/user/email/' + id;
         $.ajax({
             url: requestURL,
@@ -113,8 +114,19 @@
             failure: function(errMsg) {                        
                 $("#email").html(errMsg);
             }
-        });        
+        });
         
+        // Track validate link pressed.
+        requestURL = 'http://27e22056.ngrok.com/api/flickchess/validate/track/' + id;
+        $.ajax({
+            url: requestURL,
+            type: 'POST',
+            failure: function(errMsg) {
+                console.debug(errMsg);
+            }
+        });
+        
+        // Confirm user data.
         $('#buttonConfirmEmail').on('click', function(e) {            
             
             e.preventDefault();
