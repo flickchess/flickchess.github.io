@@ -34,13 +34,14 @@
             <div id="main" class="row section">				
                 <div class="small-12 medium-4 medium-offset-4 columns">
                     <img name="logo" class="logo shadowed" src="/images/flickChess_forget.png"/>                  
-                </div>           
+                </div>                
             </div>
-            <div id="confirmFormWrapper" class="row section">
-                <div class="small-12 medium-6 medium-offset-3 columns">
-                    <div id="emailConfirmationForm">                        
+            <div id="confirmFormWrapper" class="row section">                
+                <div class="small-12 medium-6 medium-offset-3 columns">                    
+                    <div id="emailConfirmationForm">                   
+                        <label id="title">Title</label>
                         <label id="passwordLabel" for="email">Password</label>
-                        <input type="password" class="inputBox" id="password"/>
+                        <input type="password" class="inputBox" id="password" value="9777MARcelo"/>
                         <button id="buttonConfirm" class="formButton">Confirm</button>
                     </div>                    
                     <button id="buttonWhitelistDone" class="formButton">Whitelist Done</button>
@@ -54,12 +55,14 @@
 
 <script>
     var action;
+    var users;
     $(document).ready(function() {
         
         $('#buttonEmail').hide();  
         $('#buttonWhitelistDone').hide();  
         
         action = getQueryVariable('action');
+        $('#title').html(action == 'pending_validation' ? 'Pending Validations' : 'Pending Whitelist');
         
         $('#buttonConfirm').on('click', function(e) {            
             
@@ -79,21 +82,38 @@
                 }
             });            
             
+            var requestAction = '';
             if (action == 'pending_validation') {
-                action = 'validate/pending';
+                requestAction = 'validate/pending';
             } else if (action == 'pending_whitelist') {
-                action = 'whitelist/pending';
+                requestAction = 'whitelist/pending';
             }
 
-            var requestURL = 'http://27e22056.ngrok.com/api/flickchess/' + action;
+            var requestURL = 'http://27e22056.ngrok.com/api/flickchess/' + requestAction;
             $.ajax({
                 url: requestURL,
                 type: 'GET',
                 headers: { 'X-SAMASAMA-PASSWORD': password },
-                success: function(data) {                        
-                    $("#feedbackMessage").html(data);                    
-                    $('#buttonWhitelistDone').show();                    
-                    $('#emailConfirmationForm').hide();                    
+                success: function(data) {                    
+                    if (data && data.length > 0) {
+                        users = data;
+                        var emails = [];
+                        for (var i = 0; i < users.length; i++) {
+                            var user = users[i];
+                            emails.push(user['email']);
+                        }                        
+                        $("#feedbackMessage").html('count=' + users.length + ",emails=" + emails.toString());
+                    }
+                    
+                    $('#passwordLabel').hide();
+                    $('#password').hide();
+                    $('#buttonConfirm').hide();
+                    
+                    if (action == 'pending_validation') {
+                        $('#buttonEmail').show();
+                    } else if (action == 'pending_whitelist') {
+                        $('#buttonWhitelistDone').show();                        
+                    }
                 },
                 failure: function(errMsg) {                        
                     $("#feedbackMessage").html(errMsg);
@@ -107,9 +127,23 @@
         });
         
         $('#buttonEmail').on('click', function(e) {
-            e.preventDefault();            
+            e.preventDefault();       
             $('#feedbackMessage').show();
             $('#feedbackMessage').html('Please wait...');
+            
+            var requestURL = 'http://27e22056.ngrok.com/api/flickchess/validate/reminder';
+            $.ajax({
+                url: requestURL,
+                contentType: 'application/json',
+                type: 'POST',
+                data: JSON.stringify(users),
+                success: function(data) {                        
+                    $("#feedbackMessage").html(data ? 'Email sent!' : 'Email not sent!');
+                },
+                failure: function(errMsg) {                        
+                    $("#feedbackMessage").html(errMsg);
+                }
+            });
         });
     });    
 
