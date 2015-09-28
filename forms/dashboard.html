@@ -39,11 +39,13 @@
             <div id="confirmFormWrapper" class="row section">
                 <div class="small-12 medium-6 medium-offset-3 columns">
                     <div id="emailConfirmationForm">                        
-                        <label for="email">Password</label>
+                        <label id="passwordLabel" for="email">Password</label>
                         <input type="password" class="inputBox" id="password"/>
-                    </div>
-                    <button id="buttonConfirm" class="formButton">Confirm</button>
-                    <p id="feedbackMessage"/>
+                        <button id="buttonConfirm" class="formButton">Confirm</button>
+                    </div>                    
+                    <button id="buttonWhitelistDone" class="formButton">Whitelist Done</button>
+                    <button id="buttonEmail" class="formButton">Email</button>
+                    <p id="feedbackMessage"/>                    
                 </div>
             </div>    
     	</div>
@@ -53,6 +55,9 @@
 <script>
     var action;
     $(document).ready(function() {
+        
+        $('#buttonEmail').hide();  
+        $('#buttonWhitelistDone').hide();  
         
         action = getQueryVariable('action');
         
@@ -86,12 +91,25 @@
                 type: 'GET',
                 headers: { 'X-SAMASAMA-PASSWORD': password },
                 success: function(data) {                        
-                    $("#feedbackMessage").html(data);
+                    $("#feedbackMessage").html(data);                    
+                    $('#buttonWhitelistDone').show();                    
+                    $('#emailConfirmationForm').hide();                    
                 },
                 failure: function(errMsg) {                        
                     $("#feedbackMessage").html(errMsg);
                 }
             });            
+        });
+        
+        $('#buttonWhitelistDone').on('click', function(e) {
+            $('#buttonEmail').show();
+            $('#buttonWhitelistDone').hide();
+        });
+        
+        $('#buttonEmail').on('click', function(e) {
+            e.preventDefault();            
+            $('#feedbackMessage').show();
+            $('#feedbackMessage').html('Please wait...');
         });
     });    
 
