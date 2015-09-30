@@ -31,41 +31,39 @@
     </head>
     <body>        
         <div class="content page-wrapper">
-            <div id="main" class="row section">				
-                <div class="small-12 medium-4 medium-offset-4 columns">
+            <div id="main" class="row section emailConfirm">				
+                <div class="small-6 small-offset-3 medium-4 medium-offset-4 columns">
                     <img name="logo" class="logo shadowed" src="/images/flickChess_forget.png"/>                  
                 </div>           
             </div>
-            <div id="confirmFormHeader" class="row section">
-                <div class="small-12 medium-6 medium-offset-3 columns">
+            <div id="emailConfirmationForm" class="row section">
+                <div class="small-12 medium-6 columns">
                     <p>Thanks for subscribing to Flick Chess!<br><br>Just a few more steps and you will be able to download the latest alpha release of the game. Could you please tell us a bit about yourself?</p>
+                    
+                    <input type="hidden" class="inputBox" name="id" />
+                    <label id="email">Please wait...</label>
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="inputBox" name="firstName" placeholder="John" />
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="inputBox" name="lastName" placeholder="Doe"/>
                 </div>
-            </div>
-            <div id="confirmFormWrapper" class="row section">
-                <div class="small-12 medium-6 medium-offset-3 columns">
-                    <div id="emailConfirmationForm">                        
-                        <input type="hidden" class="inputBox" name="id" />
-                        <label id="email">Please wait...</label>
-                        <label for="firstName">First Name</label>
-                        <input type="text" class="inputBox" name="firstName" placeholder="John" />
-                        <label for="lastName">Last Name</label>
-                        <input type="text" class="inputBox" name="lastName" placeholder="Doe"/>
+                <div class="small-12 medium-6 columns">                       
+                    </br></br>
+                    <p>We have a closed alpha program so we need to add you in the whitelist, please provide your ID according to the platform you want to test. <span>You can choose both!</span></p> 
 
-                        <p>We have a closed alpha program so we need to add you in the whitelist, please provide your ID according to the platform you want to test.<br>You can choose both!</p> 
-
-                        <label for="googleId">Android - Google Account</label>
-                        <input type="text" class="inputBox" name="googleId" placeholder="googleaccount@something.com"/>
-                        <label for="appleId">iOS – Apple ID</label>
-                        <input type="text" class="inputBox" name="appleId" placeholder="appleid@something.com"/>
-    <!--
-                        <label for="age">Age (Optional)</label>
-                        <input type="number" class="inputBox" name="age" placeholder="Optional"/>
-                        <label for="age">Gender (Optional)</label>
-                        <input type="number" class="inputBox" name="age" placeholder="Optional"/>
-                        <label for="age">Location (Optional)</label>
-                        <input type="number" class="inputBox" name="age" placeholder="Optional"/>                        
+                    <label for="googleId">Android - Google Account</label>
+                    <input type="text" class="inputBox" name="googleId" placeholder="googleaccount@something.com"/>
+                    <label for="appleId">iOS – Apple ID</label>
+                    <input type="text" class="inputBox" name="appleId" placeholder="appleid@something.com"/>
+<!--
+                    <label for="age">Age (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>
+                    <label for="age">Gender (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>
+                    <label for="age">Location (Optional)</label>
+                    <input type="number" class="inputBox" name="age" placeholder="Optional"/>                        
     -->
-                    </div> 
+
                     <button id="buttonConfirmEmail" class="formButton">Confirm</button>
                     <p id="feedbackMessage">Confirm feedback here</p>
                 </div>
