@@ -194,14 +194,18 @@ header {
 }
 
 .socialIcon.facebook {
-    
-}
-
-.socialIcon.twitter {
     margin-left: 15px;
 }
 
+.socialIcon.twitter {
+
+}
+
 .socialIcon.youtube {
+    margin-left: 15px;
+}   
+
+.socialIcon.email {
     margin-left: 15px;
 }   
 
