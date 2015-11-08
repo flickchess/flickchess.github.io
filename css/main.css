@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300);
 
+@font-face {
+    font-family: 'slick';
+    src: url(/fonts/slick.ttf);
+}
+
 html {
     width: 100%;
     height: 100%;
@@ -13,7 +18,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     display: inline-block;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
 
 header {
@@ -43,7 +48,7 @@ header {
     max-width: 960px;
     max-height: 650px;
     margin: 0 auto;  
-    padding-top: 3%;
+    padding-top: 3%;   
 }
 
 .logo {           
@@ -177,6 +182,104 @@ header {
     margin: 10px 5px;
 }
 
+/*SCREENSHOT SLIDER*/
+#screenshotSlider{
+    background: url('/images/mobileHolder.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    width: 310px;
+    height: 500px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+
+#screenshotSlider .sliderWrapper{
+    position: absolute;
+    top: 45px;
+    left: 8px;
+    background-color: #000;
+    width: 294px;
+    height: 390px;    
+}
+
+#screenshotSlider .sliderWrapper img{
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#screenshotSlider .slick-prev {
+    left: -40px;
+}
+#screenshotSlider .slick-next {
+    right: -40px;
+}
+
+/*ABOUT*/
+#about {
+    display: inline-block;
+}
+
+#about p {
+    color: #FF3394;
+}
+
+#about span {
+    font-weight: 700;
+}
+
+#about span.lastMan {
+    color: #FFF;
+    font-weight: 400;
+}
+
+.appStore {
+    float: left;    
+    width: 47.5%;
+    height: 60px;
+}
+
+.appStore.apple {
+    background: url(/images/appStoreButton_Apple.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-right: 5%;
+}
+
+.appStore.google {
+    background: url(/images/appStoreButton_Google.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+/*FOOTER*/
+footer { 
+    margin-top: 50px;
+    text-align: center;
+    /*display: inline-block;*/
+}
+
+footer .row {    
+    margin-bottom: 15px;
+}
+
+footer #samaLogo {
+    display: inline-block;
+    background-image: url("../images/logoSama_wide_white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 55px;
+}
+
+footer #samaLogo span {
+    display: none;
+}
+
 /*SOCIAL*/
 .socialLinksHolder {    
     display: inline-block;
@@ -210,28 +313,6 @@ header {
 }   
 
 .socialIcon span {
-    display: none;
-}
-
-/*FOOTER*/
-footer {       
-    text-align: center;
-}
-
-footer .row {    
-    margin-bottom: 15px;
-}
-
-footer #samaLogo {
-    display: inline-block;
-    background-image: url("../images/logoSama_wide_white.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 250px;
-    height: 55px;
-}
-
-footer #samaLogo span {
     display: none;
 }
 
