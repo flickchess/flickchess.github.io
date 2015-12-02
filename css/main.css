@@ -211,10 +211,23 @@ header {
 }
 
 #screenshotSlider .slick-prev {
-    left: -40px;
+    left: -60px;
+    width: 45px;
+    height: 45px;
 }
+
+#screenshotSlider .slick-prev:before {
+    font-size: 45px;
+}
+
 #screenshotSlider .slick-next {
-    right: -40px;
+    right: -60px;
+    width: 45px;
+    height: 45px;
+}
+
+#screenshotSlider .slick-next:before {
+    font-size: 45px;
 }
 
 /*ABOUT*/
@@ -224,6 +237,7 @@ header {
 
 #about p {
     color: #FF3394;
+    text-align: center;
 }
 
 #about span {
