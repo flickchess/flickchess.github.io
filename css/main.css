@@ -19,6 +19,7 @@ body {
     display: inline-block;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 header {
@@ -376,6 +377,21 @@ footer #samaLogo span {
 }
 
 /*CONFIRMATION FORM*/
+
+/*PIECES*/
+.piece {
+    background: url(/images/pieceOne.png);    
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+}
+
+.piece.two {
+    background: url(/images/pieceTwo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
 
 // Small screens
