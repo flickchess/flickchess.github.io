@@ -151,11 +151,7 @@
 
                 <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
             </footer>
-    	</div>        
-          
-        
-        <div id="pieceOne" class="piece"></div>
-        <div id="pieceTwo" class="piece two"></div>
+    	</div>
     </body>
 </html>
 
@@ -239,34 +235,79 @@
                 $(".feedbackMessage").show();
                 $(".buttonSend").show();
             }
-        });
+        });      
         
+        var nextPieceId = 0;
         
-        //Animated Pieces
-        var pieceOne = $('#pieceOne');
-        var pieceTwo = $('#pieceTwo');
+        setInterval(function() {
+            var x = getRandomPositionX();
+            var y = getRandomPositionY();            
+            var piece = createPiece(x, y);
+            
+            var stepX = 20;
+            var stepY = 70;
+            var speed = getRandomSpeed();            
+            movePiece(piece, stepX, stepY, speed);
+            
+        }, 5000);
         
-        pieceOne.css({
-            'position':'absolute',
-            'top':'50px',
-            'left':'-50px',
-            'z-index':'-1'
-        });
+        function getRandomPositionX () {
+            return getRandomBetween(0, $(window).width());
+        }
         
-        pieceTwo.css({
-            'position':'absolute',
-            'top':'700px',
-            'left':'-50px',
-            'z-index':'-1'
-        });
+        function getRandomPositionY () {
+            return getRandomBetween(0, $(window).height());
+        }
         
-        setInterval(function(){
-            movePiece(pieceOne,"50px","-50px","+=20","+=60",300);
-        },60000);
+        function getRandomSpeed() {
+            return getRandomBetween(200, 500);
+        }
         
-        setInterval(function(){
-            movePiece(pieceTwo,"700px","-50px","-=10","+=40",500);
-        },40000);
+        function getRandomBetween(min, max) {
+            return Math.floor(Math.random() * max + min);
+        }
+        
+        function createPiece(x, y) {
+            var pieceId = 'piece_' + nextPieceId++;
+            var pieceClass = Math.random() < 0.5 ? 'piece' : 'piece two';
+            var pieceHTML = '<div id="' + pieceId + '" class="' + pieceClass + '"></div>';            
+            
+            $('body').append(pieceHTML);
+            var piece = $('#' + pieceId);            
+            
+            piece.css({
+                'position': 'absolute',
+                'top': x + 'px',
+                'left': y + 'px',
+                'z-index': '-1'
+            });
+            
+            return piece;
+        }
+        
+        function movePiece(piece, stepX, stepY, speed) {
+            piece.animate({
+                top: '+=' + stepX,
+                left: '+=' + stepY
+            }, {
+                duration: speed,
+                easing: "linear",
+                step: function(now) {
+                    piece.css({
+                        transform: 'rotate(' + now + 'deg)'
+                    });
+                },
+                complete: function() {
+                    if((piece.position().left - piece.width()*5) < $('body').width()){
+                        movePiece(piece, stepX, stepY, speed);
+                    } else {
+                        var id = piece.attr('id');
+                        console.debug(id);
+                        $('body').children('#' + id).remove();
+                    }            
+                }
+            });
+        }
         
     }); // END Document.ready
     
@@ -303,29 +344,5 @@
         $("#"+wrapper+" .videoDemo").show();
     }
     
-    function movePiece(piece,initTop,initLeft,top,left,speed){
-        piece.animate({
-            top: top,
-            left: left                
-          }, {
-            duration: speed,
-            easing: "linear",
-            step: function(now) {
-                piece.css({
-                   transform: 'rotate(' + now + 'deg)'
-                 });
-              },
-            complete: function() {
-                if((piece.position().left - piece.width()*5) < $('body').width()){
-                    movePiece(piece,initTop,initLeft,top,left,speed);   
-                } else {
-                    piece.css({                            
-                        'top':initTop,
-                        'left':initLeft
-                    });
-                }                  
-            }
-        });
-
-    }
+    
 </script>
