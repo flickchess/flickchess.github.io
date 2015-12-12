@@ -124,6 +124,15 @@ header {
     text-align: center;
 }
 
+#subscribeForm label a {
+    color: #80CAA8;
+    font-weight: 700;
+}
+
+#subscribeForm label a:hover {
+    color: #FF2788;
+}
+
 #subscribeForm input {
     float: left;
     width: 68%;
@@ -419,6 +428,21 @@ footer #samaLogo span {
     
     .socialLinksHolder {    
         padding-top: 20px;
+    }
+    
+    #screenshotSlider .slick-prev {
+        top: 412px;
+        left: 0;
+    }    
+    
+    #screenshotSlider .slick-next {
+        top: 412px;
+        right: 0;
+    }
+    
+    #screenshotSlider .slick-prev:before,
+    #screenshotSlider .slick-next:before{
+        color: #121B3E;
     }
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
