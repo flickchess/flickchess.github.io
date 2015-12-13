@@ -70,24 +70,44 @@
             </div>
                         
             <div class="row">
-                <div class="small-12 medium-6 columns">
+                <div class="small-12 columns">
                     <div id="updates">
-                        <h3>v0.1.4 updated Dec 10th, 2015</h3>
+                        <h2>We just released a new version!</h2>
+                        <p>
+                            Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version! <br>
+                            Drop us an email at <a href="mailto:alpha@flickchess.com">alpha@flickchess.com</a> with your name and mobile device model
+                        </p>
+                        
+                        <div class="storesHolder">
+                            <div class="appStore apple"></div>
+                            <div class="appStore google"></div>
+                        </div>
+                        
+                        <h3>New Updates Available in v0.1.4</h3>
                         <ul class="releaseList">
-                            <li>Loading time reduced to half.</li>
-                            <li>Improved swipe controls – easier to cancel swipe & flick.</li>
-                            <li>Improved double-tap functionality – removed accidental selections.</li>
-                            <li>Improved pieces selection within piece view.</li>
-                            <li>Ensure that the selected piece is not occluded by other pieces.</li>
-                            <li>Swipe gesture length & speed determines shot’s power.</li>
-                            <li>Flicking the piece on the head, body or foot now triggers 3 different types of shot.</li>
-                            <li>Rebalanced pieces masses.</li>
-                            <li>Added new game mode: Shooting range.</li>
-                            <li>Switch starting player on match restart in order to avoid first move advantage.</li>
+                            <li>Added new game mode: Shooting range – a single player time attack & scored challenge.</li>
                             <li>Battle result screen now includes game session scores.</li>
-                            <li>Improved tutorial messages and added swipe gestures explanation.</li>
-                            <li>Added AI vs AI battle in the menu background because is cool.</li>
-                            <li>Improved AI.</li>
+                            <li>Loading time reduced in half!</li>
+                            <li>Improved controls:
+                                <ul>
+                                    <li>Swipe length & speed determines shot’s power.</li>    
+                                    <li>Cancel flick by swiping down before releasing.</li>
+                                    <li>Improved double-tap functionality – removed accidental selections.</li>
+                                    <li>Improved pieces selection within piece view.</li>
+                                    <li>Ensure that the selected piece is not occluded by other pieces.</li>
+                                </ul>
+                            </li>
+                            <li>Improved Single Player's AI & rebalanced pieces masses.</li>
+                            <li>Different type of shots can be achieved by starting the swipe in different parts of the piece:
+                                <ul>
+                                    <li>Head – flick will be like Superman: head in the front.</li>    
+                                    <li>Body – flick will be plain, piece will be stable in the board.</li>
+                                    <li>Foot – flick will have a slight angle, piece will elevate a bit.</li>
+                                </ul>
+                            </li>
+                            <li>Switch starting player on match restart in order to avoid first move advantage.</li>
+                            <li>Blended and animated tutorial for newcomers.</li>
+                            <li>Added a cool AI battle in the menu background.</li>
                         </ul>
                     </div>
                 </div>
@@ -96,10 +116,6 @@
             <footer>            
                 <div class="row">
                     <div class="small-12 columns">
-                        <div class="storesHolder">
-                            <div class="appStore apple"></div>
-                            <div class="appStore google"></div>
-                        </div>
                         <div class="socialLinksHolder">
                             <a class="socialIcon email fa fa-envelope fa-2x" href="mailto:alpha@flickchess.com?subject=[Flick Chess] Alpha subscription&body=Hello%20team%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20Flick%20Chess%20alpha.%0A%0AMy%20device%20is%3A%20(please%20fill).%0A%0ARegards%2C%0A%0A(First%20and%20last%20name)%0A%0A" target="_blank"><span>Email</span></a>
                             <a class="socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
@@ -119,7 +135,7 @@
 <script>
     $(document).ready(function() {
 
-         $('#videoWrapper').tubular({videoId: 'VSeDs_9lhtA'});
+         $('#videoWrapper').tubular({videoId: 'VSeDs_9lhtA'});        
         
         var language = getQueryVariable("lang");
         if (language == "ee") {

@@ -403,8 +403,32 @@ footer #samaLogo span {
 }
 
 /*NEW RELEASES*/
+#updates {
+    
+}
+
+#updates h2 {
+    color: #FFF;
+    text-align: center;
+}
+
+#updates p {
+    color: #FFF;
+}
+
+#updates a {
+    color: #FFF;
+    font-weight: 600;
+}
+
 #updates h3 {
     color: #FFF;
+}
+
+.storesHolder {
+    margin: 15px auto 40px;
+    display: inline-block;
+    width: 100%;
 }
 
 #updates .releaseList {
@@ -419,8 +443,12 @@ footer #samaLogo span {
     position: absolute;
     top: 0;
     left: 0;
+    padding-bottom: 100%;
 }
 
+#tubular-container{
+    opacity: 0.5;
+}
 
 
 // Small screens
@@ -464,6 +492,10 @@ footer #samaLogo span {
     #screenshotSlider .slick-next:before{
         color: #121B3E;
     }
+    
+    .videoOverlay{
+        padding-bottom: 260%;
+    }
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
@@ -473,7 +505,11 @@ footer #samaLogo span {
     }
 } /* min-width 641px, medium screens */
 
-@media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .videoOverlay{
+        padding-bottom: 150%;
+    }
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 // Large screens
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
