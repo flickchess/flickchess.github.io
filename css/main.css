@@ -414,11 +414,17 @@ footer #samaLogo span {
 
 #updates p {
     color: #FFF;
+    text-align: center;
 }
 
+
 #updates a {
-    color: #FFF;
-    font-weight: 600;
+    color: #80CAA8;
+    font-weight: 700;
+}
+
+#updates a:hover {
+    color: #FF2788;
 }
 
 #updates h3 {
