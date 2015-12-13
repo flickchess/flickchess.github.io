@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flick Chess</title>
+        <link rel="shortcut icon" href="./favicon.ico"/>
+        
+        <!-- FOUNDATION -->
+    	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <!-- FLICKCHESS CSS -->
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <!-- SLIDER -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
+        
+        <!-- JQUERY -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+        <script src="js/vendor/modernizr.js"></script>
+        
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+        
+        <script src="js/jquery.tubular.1.0.js"></script>
+        
+		<!-- FOUNDATION -->		
+		<script src="js/foundation/foundation.js"></script>
+		<script src="js/foundation/foundation.accordion.js"></script>
+		<script src="js/foundation/foundation.alert.js"></script>
+		<script src="js/foundation/foundation.tab.js"></script>
+		<script src="js/foundation/foundation.topbar.js"></script>
+        
+        <script src="js/flickchess.js"></script>
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-62592524-3', 'auto');
+        ga('send', 'pageview');
+        
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0037/5504.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+        </script>
+    </head>
+    <body>      
+        <!--<header class="page-wrapper">
+            <div class="row">
+                <div class="small-7 small-offset-5 medium-3 medium-offset-9 columns socialLinksHolder">
+                    <a class="socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
+                    <a class="socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>
+                    <a class="socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
+                </div>
+            </div>
+        </header>-->
+        
+        <div class="content page-wrapper" id="videoWrapper">
+            <div id="main" class="row section">				
+                <div class="small-12 medium-4 medium-offset-4 columns">
+                    <img name="logo" class="logo shadowed" src="../images/flickChess_forget.png"/>                  
+                </div>                
+            </div>
+                        
+            <div class="row">
+                <div class="small-12 medium-6 columns">
+                    <div id="updates">
+                        <h3>v0.1.4 updated Dec 10th, 2015</h3>
+                        <ul class="releaseList">
+                            <li>Loading time reduced to half.</li>
+                            <li>Improved swipe controls – easier to cancel swipe & flick.</li>
+                            <li>Improved double-tap functionality – removed accidental selections.</li>
+                            <li>Improved pieces selection within piece view.</li>
+                            <li>Ensure that the selected piece is not occluded by other pieces.</li>
+                            <li>Swipe gesture length & speed determines shot’s power.</li>
+                            <li>Flicking the piece on the head, body or foot now triggers 3 different types of shot.</li>
+                            <li>Rebalanced pieces masses.</li>
+                            <li>Added new game mode: Shooting range.</li>
+                            <li>Switch starting player on match restart in order to avoid first move advantage.</li>
+                            <li>Battle result screen now includes game session scores.</li>
+                            <li>Improved tutorial messages and added swipe gestures explanation.</li>
+                            <li>Added AI vs AI battle in the menu background because is cool.</li>
+                            <li>Improved AI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>            
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="storesHolder">
+                            <div class="appStore apple"></div>
+                            <div class="appStore google"></div>
+                        </div>
+                        <div class="socialLinksHolder">
+                            <a class="socialIcon email fa fa-envelope fa-2x" href="mailto:alpha@flickchess.com?subject=[Flick Chess] Alpha subscription&body=Hello%20team%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20Flick%20Chess%20alpha.%0A%0AMy%20device%20is%3A%20(please%20fill).%0A%0ARegards%2C%0A%0A(First%20and%20last%20name)%0A%0A" target="_blank"><span>Email</span></a>
+                            <a class="socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
+                            <!--<a class="socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
+                            <a class="socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>-->
+                        </div>                    
+                    </div>
+                </div>
+
+                <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
+            </footer>                    
+    	</div>
+        <div class="videoOverlay"></div>
+    </body>
+</html>
+
+<script>
+    $(document).ready(function() {
+
+         $('#videoWrapper').tubular({videoId: 'VSeDs_9lhtA'});
+        
+        var language = getQueryVariable("lang");
+        if (language == "ee") {
+            window.document.logo.src = '../images/flickChess_ee.png';
+        }
+        
+        /*TRAILER PLAY*/
+        $('.trailerPlay').on('click',function(){
+            videoInit($(this).parent().prop('id'), 'https://www.youtube.com/embed/u_HmdgDyuhI?autoplay=1');
+            
+            $(this).hide();
+        });
+        
+      
+    }); // END Document.ready
+    
+    
+    function videoInit(wrapper, url) {        
+        var iframe = $('<iframe>',{
+            src: url,
+            width: '100%',
+            height: '100%',
+            frameborder:'0',
+            allowTransparency: true,
+            allowFullScreen: '', 
+            webkitallowfullscreen: '', 
+            mozallowfullscreen: ''
+        });
+
+        $("#"+wrapper+" .videoDemo").append(iframe); 
+        $("#"+wrapper+" .videoDemo").show();
+    }
+    
+    
+</script>

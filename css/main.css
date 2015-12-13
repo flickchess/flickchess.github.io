@@ -402,6 +402,26 @@ footer #samaLogo span {
     background-repeat: no-repeat;
 }
 
+/*NEW RELEASES*/
+#updates h3 {
+    color: #FFF;
+}
+
+#updates .releaseList {
+    color: #FFF;
+}
+
+.videoOverlay {
+    background: url(/images/bg_line.png) repeat;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 
 // Small screens
 @media only screen { 
