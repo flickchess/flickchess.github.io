@@ -268,22 +268,24 @@ header {
 .appStore {
     float: left;    
     width: 47.5%;
-    height: 60px;
+    height: 90px;
 }
 
 .appStore.apple {
-    background: url(/images/appStoreButton_Apple.svg);
+    /*background: url(/images/appStoreButton_Apple.svg);*/
+    background: url(/images/storeLogo_ios.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 90%;
     margin-right: 5%;
 }
 
 .appStore.google {
-    background: url(/images/appStoreButton_Google.svg);
+    /*background: url(/images/appStoreButton_Google.svg);*/
+    background: url(/images/storeLogo_android.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 10%;
 }
 
 /*FOOTER*/
