@@ -446,15 +446,15 @@ footer #samaLogo span {
     color: #FFF;
 }
 
-.videoOverlay {
-    background: url(/images/bg_line.png) repeat;
-    z-index: 1;
-    width: 100%;
+.YTPOverlay {
+    background: url(/images/raster_dot.png) repeat;
+    /*z-index: 1;*/
+    /*width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    padding-bottom: 100%;
+    padding-bottom: 100%;*/
 }
 
 /*#tubular-container{
