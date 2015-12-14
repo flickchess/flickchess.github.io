@@ -25,7 +25,8 @@
         
         <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
         
-        <script src="js/jquery.tubular.1.0.js"></script>
+        <!--<script src="js/jquery.tubular.1.0.js"></script>-->
+        <script src="js/jquery.mb.YTPlayer.min.js"></script>
         
 		<!-- FOUNDATION -->		
 		<script src="js/foundation/foundation.js"></script>
@@ -51,7 +52,7 @@
         a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
         </script>
     </head>
-    <body>      
+    <body class="newRelease">      
         <!--<header class="page-wrapper">
             <div class="row">
                 <div class="small-7 small-offset-5 medium-3 medium-offset-9 columns socialLinksHolder">
@@ -62,7 +63,7 @@
             </div>
         </header>-->
         
-        <div class="content page-wrapper" id="videoWrapper">
+        <div class="content page-wrapper"> <!--id="videoWrapper"-->
             <div id="main" class="row section">				
                 <div class="small-12 medium-4 medium-offset-4 columns">
                     <img name="logo" class="logo shadowed" src="../images/flickChess_forget.png"/>                  
@@ -128,14 +129,18 @@
                 <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
             </footer>                    
     	</div>
-        <div class="videoOverlay"></div>
+        <!--<div class="videoOverlay"></div>-->
+        <div id="videoWrapper" class="player" 
+             data-property="{videoURL:'http://youtu.be/eF5g6NAXQ4s', containment:'body', autoPlay:true, mute:true, startAt:0, opacity:0.5, showYTLogo:false, showControls:false, addRaster:true}">
+        </div>
     </body>
 </html>
 
 <script>
     $(document).ready(function() {
 
-         $('#videoWrapper').tubular({videoId: 'eF5g6NAXQ4s'});        
+//        $('#videoWrapper').tubular({videoId: 'eF5g6NAXQ4s'});
+        $('#videoWrapper').YTPlayer();
         
         var language = getQueryVariable("lang");
         if (language == "ee") {

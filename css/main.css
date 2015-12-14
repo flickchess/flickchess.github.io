@@ -23,6 +23,10 @@ body {
     position: relative;
 }
 
+body.newRelease {
+    background: #090d1d;
+}
+
 header {
 
 }
@@ -452,9 +456,9 @@ footer #samaLogo span {
     padding-bottom: 100%;
 }
 
-#tubular-container{
+/*#tubular-container{
     opacity: 0.5;
-}
+}*/
 
 
 // Small screens
