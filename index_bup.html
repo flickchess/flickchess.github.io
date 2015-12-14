@@ -119,7 +119,7 @@
                             <div><img src="/images/slides/flick04.jpg" alt="slide 3" /></div>
                             <div><img src="/images/slides/flick05.jpg" alt="slide 3" /></div>
                             <div><img src="/images/slides/flick02.jpg" alt="slide 2" /></div>
-                            <div><img src="/images/slides/flick01.jpg" alt="slide 1" /></div>                            
+                            <div><img src="/images/slides/flick01.jpg" alt="slide 1" /></div>
                             <div><iframe width="100%" height="390" src="https://www.youtube.com/embed/JCbOiFpjrA0" frameborder="0" allowfullscreen></iframe></div>
                         </div>
                     </div>
@@ -151,7 +151,8 @@
 
                 <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
             </footer>
-    	</div>
+    	</div>        
+                        
     </body>
 </html>
 
@@ -235,81 +236,8 @@
                 $(".feedbackMessage").show();
                 $(".buttonSend").show();
             }
-        });      
-        
-        var nextPieceId = 0;
-        
-        setInterval(function() {
-            var x = getRandomPositionX();
-            var y = getRandomPositionY();            
-            var piece = createPiece(x, y);
-            
-            var stepX = 20;
-            var stepY = 70;
-            var speed = getRandomSpeed();            
-            movePiece(piece, stepX, stepY, speed);
-            
-        }, 5000);
-        
-        function getRandomPositionX () {
-            return getRandomBetween(0, $(window).width());
-        }
-        
-        function getRandomPositionY () {
-            return getRandomBetween(0, $(window).height());
-        }
-        
-        function getRandomSpeed() {
-            return getRandomBetween(200, 500);
-        }
-        
-        function getRandomBetween(min, max) {
-            return Math.floor(Math.random() * max + min);
-        }
-        
-        function createPiece(x, y) {
-            var pieceId = 'piece_' + nextPieceId++;
-            var pieceClass = Math.random() < 0.5 ? 'piece' : 'piece two';
-            var pieceHTML = '<div id="' + pieceId + '" class="' + pieceClass + '"></div>';            
-            
-            $('body').append(pieceHTML);
-            var piece = $('#' + pieceId);            
-            
-            piece.css({
-                'position': 'absolute',
-                'top': x + 'px',
-                'left': y + 'px',
-                'z-index': '-1'
-            });
-            
-            return piece;
-        }
-        
-        function movePiece(piece, stepX, stepY, speed) {
-            piece.animate({
-                top: '+=' + stepX,
-                left: '+=' + stepY
-            }, {
-                duration: speed,
-                easing: "linear",
-                step: function(now) {
-                    piece.css({
-                        transform: 'rotate(' + now + 'deg)'
-                    });
-                },
-                complete: function() {
-                    if((piece.position().left - piece.width()*5) < $('body').width()){
-                        movePiece(piece, stepX, stepY, speed);
-                    } else {
-                        var id = piece.attr('id');
-                        console.debug(id);
-                        $('body').children('#' + id).remove();
-                    }            
-                }
-            });
-        }
-        
-    }); // END Document.ready
+        });
+    });
     
     function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
@@ -343,6 +271,4 @@
         $("#"+wrapper+" .videoDemo").append(iframe); 
         $("#"+wrapper+" .videoDemo").show();
     }
-    
-    
 </script>

@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+
 
 @font-face {
     font-family: 'slick';
@@ -20,6 +21,10 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
+}
+
+body.newRelease {
+    background: #090d1d;
 }
 
 header {
@@ -49,7 +54,8 @@ header {
     max-width: 960px;
     max-height: 650px;
     margin: 0 auto;  
-    padding-top: 3%;   
+    padding-top: 3%;  
+    z-index: 2;
 }
 
 .logo {           
@@ -262,22 +268,24 @@ header {
 .appStore {
     float: left;    
     width: 47.5%;
-    height: 60px;
+    height: 90px;
 }
 
 .appStore.apple {
-    background: url(/images/appStoreButton_Apple.svg);
+    /*background: url(/images/appStoreButton_Apple.svg);*/
+    background: url(/images/storeLogo_ios.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 90%;
     margin-right: 5%;
 }
 
 .appStore.google {
-    background: url(/images/appStoreButton_Google.svg);
+    /*background: url(/images/appStoreButton_Google.svg);*/
+    background: url(/images/storeLogo_android.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50%;
+    background-position: 10%;
 }
 
 /*FOOTER*/
@@ -402,6 +410,59 @@ footer #samaLogo span {
     background-repeat: no-repeat;
 }
 
+/*NEW RELEASES*/
+#updates {
+    font-family: 'Open Sans';
+}
+
+#updates h2 {
+    color: #80CAA8;
+    text-align: center;
+}
+
+#updates p {
+    color: #FFF;
+    text-align: center;
+}
+
+#updates a {
+    color: #FFF;
+    font-weight: 700;
+}
+
+#updates a:hover {
+    color: #FF2788;
+}
+
+#updates h3 {
+    color: #FF2788;
+}
+
+.storesHolder {
+    margin: 15px auto 40px;
+    display: inline-block;
+    width: 100%;
+}
+
+#updates .releaseList {
+    color: #FFF;
+}
+
+.YTPOverlay {
+    background: url(/images/raster_dot.png) repeat;
+    /*z-index: 1;*/
+    /*width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-bottom: 100%;*/
+}
+
+/*#tubular-container{
+    opacity: 0.5;
+}*/
+
 
 // Small screens
 @media only screen { 
@@ -444,6 +505,10 @@ footer #samaLogo span {
     #screenshotSlider .slick-next:before{
         color: #121B3E;
     }
+    
+    .videoOverlay{
+        padding-bottom: 260%;
+    }
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 // Medium screens
@@ -453,7 +518,11 @@ footer #samaLogo span {
     }
 } /* min-width 641px, medium screens */
 
-@media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+    .videoOverlay{
+        padding-bottom: 150%;
+    }
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 // Large screens
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */

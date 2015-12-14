@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flick Chess</title>
+        <link rel="shortcut icon" href="./favicon.ico"/>
+        
+        <!-- FOUNDATION -->
+    	<link rel="stylesheet" type="text/css" href="/css/foundation.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <!-- FLICKCHESS CSS -->
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <!-- SLIDER -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="/css/slick-theme.css"/>
+        
+        <!-- JQUERY -->
+		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+        <script src="js/vendor/modernizr.js"></script>
+        
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
+        
+        <!--<script src="js/jquery.tubular.1.0.js"></script>-->
+        <script src="js/jquery.mb.YTPlayer.min.js"></script>
+        
+		<!-- FOUNDATION -->		
+		<script src="js/foundation/foundation.js"></script>
+		<script src="js/foundation/foundation.accordion.js"></script>
+		<script src="js/foundation/foundation.alert.js"></script>
+		<script src="js/foundation/foundation.tab.js"></script>
+		<script src="js/foundation/foundation.topbar.js"></script>
+        
+        <script src="js/flickchess.js"></script>
+        
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-62592524-3', 'auto');
+        ga('send', 'pageview');
+        
+        setTimeout(function(){var a=document.createElement("script");
+        var b=document.getElementsByTagName("script")[0];
+        a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0037/5504.js?"+Math.floor(new Date().getTime()/3600000);
+        a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+        </script>
+    </head>
+    <body class="newRelease">      
+
+        <div class="content page-wrapper"> <!--id="videoWrapper"-->
+            <div id="main" class="row section">				
+                <div class="small-12 medium-4 medium-offset-4 columns">
+                    <img name="logo" class="logo shadowed" src="../images/flickChess_forget.png"/>                  
+                </div>                
+            </div>
+                        
+            <div class="row">
+                <div class="small-12 columns">
+                    <div id="updates">
+                        <h2>We have just released a new version!</h2>
+                        <p>
+                            Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version! <br>
+                            Drop us an email at <a href="mailto:alpha@flickchess.com">alpha@flickchess.com</a> with your name and mobile device model
+                        </p>
+                        
+                        <div class="storesHolder">
+                            <div class="appStore apple"></div>
+                            <div class="appStore google"></div>
+                        </div>
+                        
+                        <h3>New Updates Available in v0.1.4</h3>
+                        <ul class="releaseList">
+                            <li>Added new game mode: Shooting range – a single player time attack & scored challenge. <a href="https://youtu.be/X61LOIKGY3A" target="_blank">[Check a demo!]</a></li>
+                            <li>Battle result screen now includes game session scores.</li>
+                            <li>Loading time reduced in half!</li>
+                            <li>Improved controls:
+                                <ul>
+                                    <li>Swipe length & speed determines shot’s power.</li>    
+                                    <li>Cancel flick by swiping down before releasing.</li>
+                                    <li>Improved double-tap functionality – removed accidental selections.</li>
+                                    <li>Improved pieces selection within piece view.</li>
+                                    <li>Ensure that the selected piece is not occluded by other pieces.</li>
+                                </ul>
+                            </li>
+                            <li>Improved Single Player's AI & rebalanced pieces masses.</li>
+                            <li>Different type of shots can be achieved by starting the swipe in different parts of the piece:
+                                <ul>
+                                    <li>Head – flick will be like Superman: head in the front.</li>    
+                                    <li>Body – flick will be plain, piece will be stable in the board.</li>
+                                    <li>Foot – flick will have a slight angle, piece will elevate a bit.</li>
+                                </ul>
+                            </li>
+                            <li>Switch starting player on match restart in order to avoid first move advantage.</li>
+                            <li>Blended and animated tutorial for newcomers.</li>
+                            <li>Added a cool AI battle in the menu background.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <footer>            
+                <div class="row">
+                    <div class="small-12 columns">
+                        <div class="socialLinksHolder">
+                            <a class="socialIcon email fa fa-envelope fa-2x" href="mailto:alpha@flickchess.com?subject=[Flick Chess] Alpha subscription&body=Hello%20team%2C%0A%0AI%20would%20like%20to%20subscribe%20to%20Flick%20Chess%20alpha.%0A%0AMy%20device%20is%3A%20(please%20fill).%0A%0ARegards%2C%0A%0A(First%20and%20last%20name)%0A%0A" target="_blank"><span>Email</span></a>
+                            <a class="socialIcon facebook fa fa-facebook-square fa-2x" href="https://www.facebook.com/flickchess" target="_blank"><span>Facebook</span></a>
+                            <!--<a class="socialIcon youtube fa fa-youtube fa-2x" href="https://www.youtube.com/channel/UCCZ4-nqLfNOVwoGmZ5xebOQ" target="_blank"><span>Youtube</span></a>
+                            <a class="socialIcon twitter fa fa-twitter fa-2x" href="https://twitter.com/flickchess" target="_blank"><span>Twitter</span></a>-->
+                        </div>                    
+                    </div>
+                </div>
+
+                <a id="samaLogo" href="http://www.samasama-studios.com" target="_blank"><span>an idea from Sama Sama Studios</span></a>            
+            </footer>                    
+    	</div>
+        <div id="videoWrapper" class="player" 
+             data-property="{videoURL:'http://youtu.be/qkHQzle5hE0', containment:'body', autoPlay:true, mute:true, startAt:0, opacity:0.5, showYTLogo:false, showControls:false, addRaster:true}">
+        </div>
+    </body>
+</html>
+
+<script>
+    $(document).ready(function() {
+
+        $('#videoWrapper').YTPlayer();
+        
+        var language = getQueryVariable("lang");
+        if (language == "ee") {
+            window.document.logo.src = '../images/flickChess_ee.png';
+        }
+        
+        /*TRAILER PLAY*/
+        $('.trailerPlay').on('click',function(){
+            videoInit($(this).parent().prop('id'), 'https://www.youtube.com/embed/u_HmdgDyuhI?autoplay=1');
+            
+            $(this).hide();
+        });
+        
+      
+    }); // END Document.ready
+    
+    
+    function videoInit(wrapper, url) {        
+        var iframe = $('<iframe>',{
+            src: url,
+            width: '100%',
+            height: '100%',
+            frameborder:'0',
+            allowTransparency: true,
+            allowFullScreen: '', 
+            webkitallowfullscreen: '', 
+            mozallowfullscreen: ''
+        });
+
+        $("#"+wrapper+" .videoDemo").append(iframe); 
+        $("#"+wrapper+" .videoDemo").show();
+    }
+    
+    
+</script>
