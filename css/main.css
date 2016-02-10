@@ -77,6 +77,14 @@ header {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=5, OffY=5, Color='#444')";
 }
 
+h2 {
+    color: #80CAA8;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
 /*VIDEO*/
 .trailerHolder {
     width: 100%;
@@ -265,6 +273,7 @@ header {
     font-weight: 400;
 }
 
+/*STORES*/
 .stores {
     margin: 50px 0;
 }
