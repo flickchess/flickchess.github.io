@@ -73,18 +73,22 @@
                         </div>
                         <div class="videoDemo"></div>                    
                     </div>            
+<!--
 
                     <div id="subscribeForm">
                         <label>Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version!</label>
+-->                     
 <!--
                         <input type="text" class="subscribeEmail" name="email" placeholder="Email"/>
                         <button class="buttonSend formButton">I am in!</button>
                         <p class="feedbackMessage">Thanks for stopping by!</p>
--->
-                        <label>Drop us an email at <a href="mailto:alpha@flickchess.com">alpha@flickchess.com</a> with your name and mobile device model</label>
-                    </div>                 
+-->                    
+<!--                        <label>Drop us an email at <a href="mailto:alpha@flickchess.com">alpha@flickchess.com</a> with your name and mobile device model</label>
+                    </div>
+-->               
                 </div>  
             </div>
+
             <!--FOR MOBILE-->
             <div class="row hide-for-large-up">
                 <div class="small-12 medium-6 medium-offset-3 columns">
@@ -96,20 +100,52 @@
                     </div>                
                 </div>
             </div>
+<!--
             <div class="row hide-for-large-up">
                 <div class="small-12 medium-6 medium-offset-3 columns">
                     <div id="subscribeForm">
                         <label>Want to help us make this game awesome? Join our alpha testing team, be part of the credits and receive the full version!</label>
+-->
 <!--
                         <input type="text" class="subscribeEmail" name="email" placeholder="Email"/>
                         <button class="buttonSend formButton">I am in!</button>
                         <p class="feedbackMessage">Thanks for stopping by!</p>
--->                        
+-->                    
+<!--    
                         <label>Drop us an email at <a href="mailto:alpha@flickchess.com">alpha@flickchess.com</a> with your name and mobile device model</label>
                     </div>
                 </div>
             </div>
+-->
             <!--FOR MOBILE-->
+            
+            <div class="row stores">
+                <div class="small-12 medium-8 medium-offset-2 columns">                    
+                    <a class="storeLink amazon" href="http://www.amazon.com/Sama-Studios-Flick-Chess/dp/B0198F0FNO" target="_blank">
+                        <div class="ribon free"></div>
+                        <div class="store small amazon"></div>
+                    </a>
+                    <a class="storeLink google" href="https://play.google.com/store/apps/details?id=com.samasamastudios.flickchess.premium" target="_blank">
+                        <div class="store small googlePlay"></div>
+                    </a>
+                    <a class="storeLink apple disabled" href="#" target="_top">
+                        <div class="ribon soon"></div>
+                        <div class="store small appStore"></div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="small-12 medium-8 medium-offset-2 columns">
+                    <div id="about">
+                        <p><span>Flick Chess</span> is an offline multiplayer mobile game, where Players need to forget the rules and flick their chess figures towards the enemy lines with a simple swipe gesture in order to knock down all enemy pieces. 
+                            <br>You win by knocking down all enemy pieces.
+                        </p>
+                        <!--<div class="store apple"></div>
+                        <div class="store google"></div>-->
+                    </div>
+                </div>
+            </div>
             
             <div class="row">
                 <div class="small-12 medium-8 medium-offset-2 columns">
@@ -120,22 +156,11 @@
                             <div><img src="/images/slides/flick05.jpg" alt="slide 3" /></div>
                             <div><img src="/images/slides/flick02.jpg" alt="slide 2" /></div>
                             <div><img src="/images/slides/flick01.jpg" alt="slide 1" /></div>
-                            <div><iframe width="100%" height="390" src="https://www.youtube.com/embed/JCbOiFpjrA0" frameborder="0" allowfullscreen></iframe></div>
+                            <!--<div><iframe width="100%" height="390" src="https://www.youtube.com/embed/JCbOiFpjrA0" frameborder="0" allowfullscreen></iframe></div>-->
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="small-12 medium-8 medium-offset-2 columns">
-                    <div id="about">
-                        <p><span>Flick Chess</span> is an offline multiplayer mobile game, where Players need to forget the rules and flick their chess figures towards the enemy lines with a simple swipe gesture in order to knock down all enemy pieces. 
-                            <br>You win by knocking down all enemy pieces.
-                        </p>
-                        <div class="appStore apple"></div>
-                        <div class="appStore google"></div>
-                    </div>
-                </div>
-            </div>
+            </div>            
             
             <footer>            
                 <div class="row">
@@ -167,7 +192,7 @@
         
         /*TRAILER PLAY*/
         $('.trailerPlay').on('click',function(){
-            videoInit($(this).parent().prop('id'), 'https://www.youtube.com/embed/u_HmdgDyuhI?autoplay=1');
+            videoInit($(this).parent().prop('id'), 'https://www.youtube.com/watch?v=3a4QVmXN3SA?autoplay=1');
             
             $(this).hide();
         });
